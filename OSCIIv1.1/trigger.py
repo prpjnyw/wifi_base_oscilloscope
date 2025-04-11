@@ -18,6 +18,9 @@ def trgIndexRis(arr : list) -> int :
             ll.append(round(arr[i],1))
         rec = set(ll)
 
+        # print('min : ' + str(minm))
+        # print('max : ' + str(mxnm))
+
         if len(rec) == 2:
             # print('if')
             for i in range(0, len(arr)) :
@@ -26,6 +29,12 @@ def trgIndexRis(arr : list) -> int :
             return 0
 
         else :
+            # print('else')
+
+            # while(not(abs(trgp - arr[ind]) <= ESP and arr[ind + 10] >= trgp 
+            #           and arr[ind - 1] <= trgp )):
+            #     ind += 1
+            # return ind
             for i in range(0, len(arr)) :
                 if math.isclose(round(arr[i]), round(trgp)) and round(arr[i + 10],1) > round(trgp,1):
                     return i 
@@ -34,6 +43,9 @@ def trgIndexRis(arr : list) -> int :
     except IndexError:
         # print('expept')
         for i in range(0, len(arr) - 1) :
+            #todo : change the value of 0.3 and 0.5 
+            #to something that bases on trge, mxnm or minm | eg. trge / 3 
+
             if round(arr[i],1) == 0.3 and round(arr[i+1],1) == 0.5:
                 return i 
         return 0 
@@ -51,6 +63,7 @@ def set_dump_storage(dump, read_buf) :
             dump.append(round(j * factor,5)) 
             j = 0
             n = 0
+
 
 if __name__ == 'main' :
     pass
